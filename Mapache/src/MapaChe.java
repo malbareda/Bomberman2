@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class MapaChe {
-	///esto es un comentario random s
+	///esto es un comentario random
+	//esto tambien
 	static int x;
 	static int y;
 	static int pwr=1;
