@@ -22,6 +22,8 @@ public class Test {
         
         //cas 1: Hundir la flota
         
+        System.out.println("cas 1: Colors - Enfonsar la flota");
+        
         t.setActcolors(true);
         t.setActimatges(false);
         t.setActlletres(false);
@@ -44,6 +46,8 @@ public class Test {
         		{0,0,0,0,0,0,0,0,0,0},
         		{0,0,0,0,2,4,1,7,8,9},
         	};
+        
+
         		
         t.dibuixa(matriu);
         sc.nextLine();
@@ -54,6 +58,9 @@ public class Test {
         
         
         //cas 2: Buscaminas
+        
+        System.out.println("cas 2: Text - Buscamines");
+        
         t.setActcolors(false);
         t.setFons(0xb1adad);
         t.setActimatges(false);
@@ -86,6 +93,8 @@ public class Test {
         
         //cas 3: The Legend of Zelda
         
+        
+        System.out.println("cas 3: Imatges - The Legend of Zelda");
         t.setActcolors(false);
         t.setFons(0xfed8a7);
         t.setActimatges(true);
@@ -107,13 +116,101 @@ public class Test {
         	};
         		
         t.dibuixa(matriu3);
+        
+        
+        
         sc.nextLine();
- 
+        
+        //cas 4: Exemple de background
+        
+        System.out.println("cas 4: Exemple de imgbackground");
+        t.setActimgbackground(true);
+        t.setImgbackground("b84.png");
+        t.dibuixa(matriu3);
+        
+        
+        sc.nextLine();
+        
+        
+      //cas 5: Exemple d'overdraw
+        
+        
+        System.out.println("cas 5: Exemple d'overdraw");
+        t.setActimgbackground(false);
+        int[][] matriuover =
+        	{
+            		{6,0},
+            		{0,0},
+        	};
+        t.overdibuixa(matriuover);
+        
+        
+        sc.nextLine();
+        
+        
+        ///cas 6: Comprovacio mouse i teclat
+        
+        System.out.println("cas 6: Comprovacio mouse i teclat");
+        
+        System.out.println("prem en una casella amb el ratolí i apreta una tecla del teclat. Després prem intro");
+        
+        sc.nextLine();
+        System.out.println("l'ultima casella clickada es:  fila "+t.getMousefil()+"   columna: "+t.getMousecol());
+        System.out.println("l'ultima tecla premuda es:   "+f.getActualChar());
+        System.out.println("ara hauria d'estar en zero. Aixo reflecteix les tecles"
+        		+ "que vols apretar i un cop actuades no vols que quedin en memoria:  "+f.getActualChar());
+        System.out.println("i aquesta es l'última tecla premuda sense quedarse en blanc: Això és per quan"
+        		+ "vols un sistema amb memoria: "+f.getUltimChar());
+        
+        
+        ///cas 7: Doble finestra
+        
+        System.out.println("cas 7: Doble finestra");
+        Taulell t2 = new Taulell();
+        Finestra f2 = new Finestra(t,t2);
+        t.setActcolors(true);
+        t.setActimatges(false);
+        t.setActlletres(false);
+        t.setActoverdraw(false);
+        int[] colors2={0x0000FF,0x00FF00,0xFFFF00,0xFF0000,0xFF00FF,0x00FFFF,0x000000,0xFFFFFF,0xFF8000,0x7F00FF};
+        t.setColors(colors2);
+        f2.setActetiquetes(true); //les etiquetes i titol com que no tenen a veure amb la matriu es tracten per la finestra!
+        String[] etiquetes3={"Dispars:10","Portavions:1","Cuirassats:0","Creuers:0","Submarins:1"};
+        f2.setEtiquetes(etiquetes3);  
+        f2.setTitle("Enfonsar la flota");
+        t2.setActcolors(true);
+        t2.setColors(colors2);
+        
+        int[][] matriu41 =
+        	{
+        		{0,0,0,0,0,0,0,0,0,0},
+        		{0,0,5,3,3,0,0,5,0,0},
+        		{0,0,0,0,0,0,0,0,0,0},
+        		{0,0,5,0,6,0,0,0,0,0},
+        		{0,0,0,0,6,0,5,0,0,0},
+        		{0,0,0,0,6,0,0,0,6,0},
+        		{0,0,5,0,6,0,0,0,0,0},
+        		{0,0,0,0,0,0,0,0,0,0},
+        		{0,0,0,0,0,0,0,0,0,0},
+        		{0,0,0,0,2,4,1,7,8,9},
+        	};
+        
+        int[][] matriu42 =
+        	{
+        		{0,0,0,5,0,5,0,0,0,0},
+        		{0,0,5,3,3,0,0,5,0,0},
+        		{0,0,0,0,0,0,0,0,0,0},
+        		{0,0,5,0,6,0,0,0,0,0},
+        		{0,0,5,0,6,0,5,0,0,0},
+        		{0,5,0,0,6,0,0,5,6,0},
+        		{0,0,5,0,6,0,0,0,0,0},
+        		{0,0,0,0,0,0,0,0,0,0},
+        		{0,0,0,0,0,0,0,0,0,0},
+        		{0,0,0,0,2,4,1,7,8,9},
+        	};
+        t.dibuixa(matriu41);
+        
+        t2.dibuixa(matriu42);
     }
  
 }
-
-
-
-
-
