@@ -183,7 +183,11 @@ public class MapaChe {
 				win();
 			}
 			if ((mapa[i + k][j] == 13 || mapa[i + k][j] == 12 || mapa[i + k][j] == 11 || mapa[i + k][j] == 6 )) {
+				if ((mapa[i+k][j] == 6)) {
+					muerte();
+				}
 				explosion(i+k,j,pwr);
+				
 			}
 			if ((mapa[i - k][j] == 0) || (mapa[i - k][j] == 5)) {
 				mapa[i - k][j] = 7;
@@ -196,9 +200,12 @@ public class MapaChe {
 				mapa[i - k][j] = 9;
 				win();
 			}
-			if ((mapa[i - k][j] == 23) ||(mapa[i - k][j] == 22) ||(mapa[i - k][j] == 21) ||(mapa[i - k][j] == 6) ) {
-
+			if ((mapa[i - k][j] == 13) ||(mapa[i - k][j] == 12) ||(mapa[i - k][j] == 11) ||(mapa[i - k][j] == 6) ) {
+				if ((mapa[i-k][j] == 6)) {
+					muerte();
+				}
 				explosion(i-k,j,pwr);
+				
 			}
 			if ((mapa[i][j + k] == 0) || (mapa[i][j + k] == 5)) {
 				mapa[i][j + k] = 7;
@@ -211,8 +218,12 @@ public class MapaChe {
 				mapa[i][j + k] = 9;
 				win();
 			}
-			if ((mapa[i][j + k] == 23 || mapa[i][j + k] == 22 || mapa[i][j + k] == 21 || mapa[i][j + k] == 6)) {
+			if ((mapa[i][j + k] == 13 || mapa[i][j + k] == 12 || mapa[i][j + k] == 11 || mapa[i][j + k] == 6)) {
+				if ((mapa[i][j + k] == 6)) {
+					muerte();
+				}
 				explosion(i,j+k,pwr);
+
 			}
 			if ((mapa[i][j - k] == 0) || (mapa[i][j - k] == 5)) {
 				mapa[i][j - k] = 7;
@@ -225,9 +236,12 @@ public class MapaChe {
 				mapa[i][j - k] = 9;
 				win();
 			}
-			if ((mapa[i][j - k] == 23) ||(mapa[i][j - k] == 22) ||(mapa[i][j - k] == 21) ||(mapa[i][j - k] == 6) ) {
-				
+			if ((mapa[i][j - k] == 13) ||(mapa[i][j - k] == 12) ||(mapa[i][j - k] == 11) ||(mapa[i][j - k] == 6) ) {
+				if ((mapa[i][j - k] == 6)) {
+					muerte();
+				}
 				explosion(i,j-k,pwr);
+				
 			}
 			
 			
