@@ -250,7 +250,7 @@ public class MapaChe {
 
 	}
 
-	private static void win() {
+	static void win() {
 		// TODO Auto-generated method stub
 		int contan = 0;
 		for (int i = 0; i < mapa.length; i++) {
@@ -268,7 +268,7 @@ public class MapaChe {
 
 	}
 
-	private static void muerte() {
+	static void muerte() {
 		// TODO Auto-generated method stub
 		System.out.println("puto manco");
 		timer.cancel();
