@@ -4,8 +4,8 @@ public class Mapa {
 	
 	static Mapa mapa=null;
 	static Coso[][] matriz=null;
-	final int FILAS = 13;
-	final int COLUMNAS = 15;
+	final static int FILAS = 13;
+	final static int COLUMNAS = 15;
 	
 	private Mapa(){
 		for(int i=0;i<FILAS;i++) {
@@ -30,7 +30,7 @@ public class Mapa {
 		
 	}
 	
-	static Mapa get() {
+	public static Mapa get() {
 		
 		if(mapa==null) {
 			mapa= new Mapa();
@@ -39,6 +39,35 @@ public class Mapa {
 		return mapa;
 		
 	}
+	
+	public static int[][] toIntMatrix(){
+		int[][] imat = new int[FILAS][COLUMNAS];
+		for(int i=1;i<FILAS-1;i++) {
+			for(int j=1;j<COLUMNAS-1;j++) {
+				imat[i][j] = matriz[i][j].img;
+			}
+		}
+		return imat;
+		
+	}
+	
+	public static int enemiesLeft() {
+		int contador=0;
+		for(int i=1;i<FILAS-1;i++) {
+			for(int j=1;j<COLUMNAS-1;j++) {
+				if(matriz[i][j] instanceof Enemigo) {
+					contador++;
+				}
+			}
+		}
+		
+		
+		
+		return contador;
+		
+	}
+	
+	
 	
 
 }
