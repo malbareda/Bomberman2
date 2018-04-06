@@ -1,14 +1,12 @@
 
-public class Bomba {
+public class Bomba extends Coso {
 
 	// params
 
 	int pwr = 1;
-	int x, y;
 	int contador;
 	boolean color;//true normal false negra
-	static int img = 6;
-
+	
 	// metodos
 	
 	public Bomba(int pwr, int x, int y, boolean color) {
@@ -17,7 +15,11 @@ public class Bomba {
 		this.y=y;
 		this.color=color;
 		this.contador=3;
+		img = 6;
 	}
+	
+	
+	
 
 	private void explosion() {
 		MapaChe.mapa[x][y] = 7;
@@ -156,6 +158,15 @@ public class Bomba {
 	
 	public int getImg() {
 		return img;
+	}
+
+
+
+
+	@Override
+	protected void hit() {
+		// TODO Auto-generated method stub
+		this.explosion();
 	}
 
 }
