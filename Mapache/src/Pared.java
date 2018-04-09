@@ -7,7 +7,7 @@ public class Pared extends Coso {
 		img = 1;
 	}
 	@Override
-	protected boolean hit() {
+	protected boolean hit(boolean color) {
 		// TODO Auto-generated method stub
 		return false;
 	}

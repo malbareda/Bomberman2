@@ -8,8 +8,14 @@ public class Suelo extends Coso {
 	}
 	
 	@Override
-	protected boolean hit() {
+	protected boolean hit(boolean color) {
 		// TODO Auto-generated method stub
+		if(bm) {
+			BombermanOO.bm.die();
+		}
+		if(en!=null&&color==true) {
+			en.die();
+		}
 		Mapa m = Mapa.get();
 		m.matriz[x][y] = new Deflagracion(x,y);
 		return true;

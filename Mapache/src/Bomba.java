@@ -15,138 +15,52 @@ public class Bomba extends Coso {
 		this.y=y;
 		this.color=color;
 		this.contador=3;
-		img = 6;
+		img = 4;
 	}
 	
 	
 	
 
 	private void explosion() {
-		MapaChe.mapa[x][y] = 7;
-		for (int k = 1; k <= pwr; k++) {
-			if ((MapaChe.mapa[x + k][y] == 0) || (MapaChe.mapa[x + k][y] == 5)) {
-				MapaChe.mapa[x + k][y] = 7;
-			}
-			if ((MapaChe.mapa[x + k][y] == 2)) {
-				MapaChe.mapa[x + k][y] = 8;
-				MapaChe.muerte();
-			}
-			if ((MapaChe.mapa[x + k][y] == 3)) {
-				MapaChe.mapa[x + k][y] = 9;
-				MapaChe.win();
-			}
-			if ((MapaChe.mapa[x + k][y] == 13 || MapaChe.mapa[x + k][y] == 12 || MapaChe.mapa[x + k][y] == 11 || MapaChe.mapa[x + k][y] == 6)) {
-				if ((MapaChe.mapa[x + k][y] == 6)) {
-					MapaChe.muerte();
-				}
-				//explosion(x + k, y, pwr);
-
-			}
-			if ((MapaChe.mapa[x - k][y] == 0) || (MapaChe.mapa[x - k][y] == 5)) {
-				MapaChe.mapa[x - k][y] = 7;
-			}
-			if ((MapaChe.mapa[x - k][y] == 2)) {
-				MapaChe.mapa[x - k][y] = 8;
-				MapaChe.muerte();
-			}
-			if ((MapaChe.mapa[x - k][y] == 3)) {
-				MapaChe.mapa[x - k][y] = 9;
-				MapaChe.win();
-			}
-			if ((MapaChe.mapa[x - k][y] == 13) || (MapaChe.mapa[x - k][y] == 12) || (MapaChe.mapa[x - k][y] == 11) || (MapaChe.mapa[x - k][y] == 6)) {
-				if ((MapaChe.mapa[x - k][y] == 6)) {
-					MapaChe.muerte();
-				}
-				//explosion(x - k, y, pwr);
-
-			}
-			if ((MapaChe.mapa[x][y + k] == 0) || (MapaChe.mapa[x][y + k] == 5)) {
-				MapaChe.mapa[x][y + k] = 7;
-			}
-			if ((MapaChe.mapa[x][y + k] == 2)) {
-				MapaChe.mapa[x][y + k] = 8;
-				MapaChe.muerte();
-			}
-			if ((MapaChe.mapa[x][y + k] == 3)) {
-				MapaChe.mapa[x][y + k] = 9;
-				MapaChe.win();
-			}
-			if ((MapaChe.mapa[x][y + k] == 13 || MapaChe.mapa[x][y + k] == 12 || MapaChe.mapa[x][y + k] == 11 || MapaChe.mapa[x][y + k] == 6)) {
-				if ((MapaChe.mapa[x][y + k] == 6)) {
-					MapaChe.muerte();
-				}
-				//explosion(x, y + k, pwr);
-
-			}
-			if ((MapaChe.mapa[x][y - k] == 0) || (MapaChe.mapa[x][y - k] == 5)) {
-				MapaChe.mapa[x][y - k] = 7;
-			}
-			if ((MapaChe.mapa[x][y - k] == 2)) {
-				MapaChe.mapa[x][y - k] = 8;
-				MapaChe.muerte();
-			}
-			if ((MapaChe.mapa[x][y - k] == 3)) {
-				MapaChe.mapa[x][y - k] = 9;
-				MapaChe.win();
-			}
-			if ((MapaChe.mapa[x][y - k] == 13) || (MapaChe.mapa[x][y - k] == 12) || (MapaChe.mapa[x][y - k] == 11) || (MapaChe.mapa[x][y - k] == 6)) {
-				if ((MapaChe.mapa[x][y - k] == 6)) {
-					MapaChe.muerte();
-				}
-				//explosion(x, y - k, pwr);
-
-			}
-
-		}
-		System.out.println("boom");
-
-	}
-
-	private void explosionnegra() {
-		MapaChe.mapa[x][y] = 7;
-		for (int k = 1; k <= pwr; k++) {
-			if ((MapaChe.mapa[x + k][y] == 0) || (MapaChe.mapa[x + k][y] == 5)) {
-				MapaChe.mapa[x + k][y] = 7;
-			}
-			if ((MapaChe.mapa[x + k][y] == 2)) {
-				MapaChe.mapa[x + k][y] = 8;
-				MapaChe.muerte();
-			}
-			if ((MapaChe.mapa[x - k][y] == 0) || (MapaChe.mapa[x - k][y] == 5)) {
-				MapaChe.mapa[x - k][y] = 7;
-			}
-			if ((MapaChe.mapa[x - k][y] == 2)) {
-				MapaChe.mapa[x - k][y] = 8;
-				MapaChe.muerte();
-			}
-			if ((MapaChe.mapa[x][y + k] == 0) || (MapaChe.mapa[x][y + k] == 5)) {
-				MapaChe.mapa[x][y + k] = 7;
-			}
-			if ((MapaChe.mapa[x][y + k] == 2)) {
-				MapaChe.mapa[x][y + k] = 8;
-				MapaChe.muerte();
-			}
-			if ((MapaChe.mapa[x][y - k] == 0) || (MapaChe.mapa[x][y - k] == 5)) {
-				MapaChe.mapa[x][y - k] = 7;
-			}
-			if ((MapaChe.mapa[x][y - k] == 2)) {
-				MapaChe.mapa[x][y - k] = 8;
-				MapaChe.muerte();
+		BombermanOO.bombl.remove(this);
+		Mapa.matriz[x][y] = new Suelo(x,y);
+		Mapa.matriz[x][y].hit(color);
+		for(int i =1; i<=pwr;i++) { //ARR
+			boolean paso = Mapa.matriz[x-i][y].hit(color);
+			if(!paso) {
+				break;
 			}
 		}
-		System.out.println("boom negro");
+		for(int i =1; i<=pwr;i++) { //AB
+			boolean paso = Mapa.matriz[x+i][y].hit(color);
+			if(!paso) {
+				break;
+			}
+		}
+		for(int i =1; i<=pwr;i++) { //IZ
+			boolean paso = Mapa.matriz[x][y-i].hit(color);
+			if(!paso) {
+				break;
+			}
+		}
+		for(int i =1; i<=pwr;i++) { //DER
+			boolean paso = Mapa.matriz[x][y+i].hit(color);
+			if(!paso) {
+				break;
+			}
+		}
+		
 
 	}
 	
 	
 	
 	
-	private void contabombas() {
+	public void contabombas() {
 		// TODO Auto-generated method stub
 		this.contador--;
 		if(contador<0) {
-			if(color==true) this.explosion();
-			else this.explosionnegra();
+			this.explosion();
 		}
 		
 	}
@@ -164,9 +78,25 @@ public class Bomba extends Coso {
 
 
 	@Override
-	protected void hit() {
+	protected boolean hit(boolean color) {
 		// TODO Auto-generated method stub
+		if(bm) {
+			BombermanOO.bm.die();
+		}
+		if(en!=null&&color==true) {
+			en.die();
+		}
 		this.explosion();
+		return false;
+	}
+
+
+
+
+	@Override
+	protected boolean move() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

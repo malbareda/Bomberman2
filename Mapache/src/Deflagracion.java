@@ -8,7 +8,7 @@ public class Deflagracion extends Coso {
 	}
 
 	@Override
-	protected boolean hit() {
+	protected boolean hit(boolean color) {
 		// TODO Auto-generated method stub
 		return true;
 	}

@@ -3,7 +3,7 @@ public class Caja extends Coso{
 
 	int powerup;
 	@Override
-	protected boolean hit() {
+	protected boolean hit(boolean color) {
 		Mapa m = Mapa.get();
 		m.matriz[x][y] = new Suelo(x,y);
 		return false;
