@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -76,22 +75,6 @@ public class BombermanOO {
 	}
 
 	private static void initpartida() {
-		// 2 bm
-		// 3 bmn
-		// 4 bomba
-		// 5 bloque
-		// 6 bb
-		// 7 llama
-		// 8 gore
-		// 9 goren
-		// 11 bomba-1turno
-		// 12 bomba-2turno
-		// 13 bomba-3turno
-		// 16 bbnegro
-		// 21 bomban-1turno
-		// 22 bomban-2turno
-		// 33 bomban-3turno
-		Mapa m = Mapa.get();
 		bm = new Bomberman(1, 1);
 		enemyl.add(new BombermanEnemigo(1, 13));
 		enemyl.add(new BombermanEnemigo(10, 13));
