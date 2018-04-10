@@ -1,8 +1,9 @@
 
 public class Bomberman implements Personaje{
 
-	int pwr=1;
+	static int pwr=1;
 	int x,y;
+	static int img=2;
 	
 	public Bomberman(int i, int j) {
 		// TODO Auto-generated constructor stub
@@ -23,28 +24,28 @@ public class Bomberman implements Personaje{
 		switch(opt) {
 		case 'w':
 			//ARR
-			if(Mapa.matriz[x-1][y].move()==true) {
+			if(Mapa.matriz[x-1][y].move(true)==true) {
 				Mapa.matriz[x][y].bm=false;
 				Mapa.matriz[x-1][y].bm=true;
 				x--;
 			}
 			break;
 		case 's':
-			if(Mapa.matriz[x+1][y].move()==true) {
+			if(Mapa.matriz[x+1][y].move(true)==true) {
 				Mapa.matriz[x][y].bm=false;
 				Mapa.matriz[x+1][y].bm=true;
 				x++;
 			}
 			break;
 		case 'a':
-			if(Mapa.matriz[x][y-1].move()==true) {
+			if(Mapa.matriz[x][y-1].move(true)==true) {
 				Mapa.matriz[x][y].bm=false;
 				Mapa.matriz[x][y-1].bm=true;
 				y--;
 			}
 			break;
 		case 'd':
-			if(Mapa.matriz[x][y+1].move()==true) {
+			if(Mapa.matriz[x][y+1].move(true)==true) {
 				Mapa.matriz[x][y].bm=false;
 				Mapa.matriz[x][y+1].bm=true;
 				y++;
@@ -60,7 +61,7 @@ public class Bomberman implements Personaje{
 	@Override
 	public void action() {
 		// TODO Auto-generated method stub
-		Bomba b = new Bomba(pwr,x,y,true);
+		Bomba b = new Bomba(pwr,x,y,true,true,null);
 		Mapa.matriz[x][y] = b; 
 		BombermanOO.bombl.add(b);
 		
@@ -69,6 +70,7 @@ public class Bomberman implements Personaje{
 	@Override
 	public void die() {
 		// TODO Auto-generated method stub
+		img = 8;
 		BombermanOO.gameOver();
 		
 	}

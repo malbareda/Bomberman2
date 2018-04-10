@@ -13,7 +13,7 @@ public class Pared extends Coso {
 	}
 
 	@Override
-	protected boolean move() {
+	protected boolean move(boolean b) {
 		// TODO Auto-generated method stub
 		System.out.println("pop");
 		return false;

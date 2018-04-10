@@ -22,7 +22,11 @@ public class Mapa {
 			for(int j=1;j<COLUMNAS-1;j++) {
 				if(i%2==0&&j%2==0) {
 					matriz[i][j]= new Pared(i,j);
-				}else {
+				}
+				else if(i%2==1&&j%2==1&&i>2&&j>2) {
+					matriz[i][j]= new Caja(i,j);
+				}
+				else {
 					matriz[i][j]= new Suelo(i,j);
 				}
 			}
@@ -55,9 +59,9 @@ public class Mapa {
 
 	public static int[][] overdraw(Bomberman bm, ArrayList<Enemigo> enemyl) {
 		int[][] over=new int[FILAS][COLUMNAS];
-		over[bm.x][bm.y]=2;
+		over[bm.x][bm.y]=Bomberman.img;
 		for (Enemigo en : enemyl) {
-			over[en.x][en.y]=3;
+			over[en.x][en.y]=en.img;
 		}
 		
 		return over;

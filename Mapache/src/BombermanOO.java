@@ -28,14 +28,21 @@ public class BombermanOO {
 
 	private static void bucle() {
 		// TODO Auto-generated method stub
-		for (Bomba b : bombl) {
+		limpieza();
+		bm.move();
+		ArrayList<Bomba> tb = new ArrayList<>();
+		tb.addAll(bombl);
+		for (Bomba b : tb) {
 			b.contabombas();
 		}
-		for (Enemigo e : enemyl) {
-			//e.move();
+		ArrayList<Enemigo> te = new ArrayList<>();
+		te.addAll(enemyl);
+		for (Enemigo e : te) {
+			e.move();
 		}
+		
 
-		bm.move();
+
 
 		view();
 		/*
@@ -44,6 +51,18 @@ public class BombermanOO {
 		 * mover(); moverenemigo(); limpieza(); contabombas();
 		 */
 
+	}
+
+	private static void limpieza() {
+		for(int i=1;i<Mapa.FILAS-1;i++) {
+			for(int j=1;j<Mapa.COLUMNAS-1;j++) {
+				if(Mapa.matriz[i][j] instanceof Deflagracion) {
+					Mapa.matriz[i][j].limpiar();
+				}
+					
+				}
+			}
+		
 	}
 
 	static void win() {
@@ -75,7 +94,7 @@ public class BombermanOO {
 		Mapa m = Mapa.get();
 		bm = new Bomberman(1, 1);
 		enemyl.add(new BombermanEnemigo(1, 13));
-		enemyl.add(new BombermanEnemigo(1, 13));
+		enemyl.add(new BombermanEnemigo(10, 13));
 		timer.schedule(new TimerTask() {
 
 			@Override
@@ -94,7 +113,7 @@ public class BombermanOO {
 		// imagenes
 		t.setActimatges(true);
 		String[] imatges = { "", "", "bomberman.png", "bombermannegro.png", "bomba.png", "bloque.png", "bb.png",
-				"llama.png", "gore.png", "humornegro.png", "", "bomba.png", "bomba.png", "bomba.png", "", "",
+				"llama.png", "gore.png", "humornegro.png", "pu.jpg", "bomba.png", "bomba.png", "bomba.png", "", "",
 				"bbnegro.png", "", "", "", "", "bomba.png", "bomba.png", "bomba.png" };
 		t.setImatges(imatges);
 

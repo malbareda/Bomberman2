@@ -9,21 +9,26 @@ public class Bomba extends Coso {
 	
 	// metodos
 	
-	public Bomba(int pwr, int x, int y, boolean color) {
+	public Bomba(int pwr, int x, int y, boolean color, boolean bm, Enemigo en) {
 		this.pwr=pwr;
 		this.x=x;
 		this.y=y;
 		this.color=color;
 		this.contador=3;
 		img = 4;
+		this.bm = bm;
+		this.en = en;
 	}
+	
+	
+	
 	
 	
 	
 
 	private void explosion() {
 		BombermanOO.bombl.remove(this);
-		Mapa.matriz[x][y] = new Suelo(x,y);
+		Mapa.matriz[x][y] = new Suelo(x,y,bm);
 		Mapa.matriz[x][y].hit(color);
 		for(int i =1; i<=pwr;i++) { //ARR
 			boolean paso = Mapa.matriz[x-i][y].hit(color);
@@ -94,7 +99,7 @@ public class Bomba extends Coso {
 
 
 	@Override
-	protected boolean move() {
+	protected boolean move(boolean b) {
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -1,12 +1,19 @@
 
 public class Suelo extends Coso {
 
+	public Suelo(int x, int y, boolean bm) {
+		this.x=x;
+		this.y=y;
+		img = 0;
+		this.bm=bm;
+	}
+	
 	public Suelo(int x, int y) {
 		this.x=x;
 		this.y=y;
 		img = 0;
 	}
-	
+
 	@Override
 	protected boolean hit(boolean color) {
 		// TODO Auto-generated method stub
@@ -22,7 +29,7 @@ public class Suelo extends Coso {
 	}
 
 	@Override
-	protected boolean move() {
+	protected boolean move(boolean b) {
 		// TODO Auto-generated method stub
 		return true;
 	}
