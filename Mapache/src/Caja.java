@@ -10,6 +10,10 @@ public class Caja extends Coso{
 	@Override
 	protected boolean hit(boolean color) {
 		
+		
+		if (color) {
+			BombermanOO.punts++;
+		}
 		int r = (int) (Math.random()*4);
 		if (r==3) {
 			Mapa.matriz[x][y] = new PowerUp(x,y);	

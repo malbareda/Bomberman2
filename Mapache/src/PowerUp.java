@@ -20,6 +20,7 @@ public class PowerUp extends Coso {
 	protected boolean move(boolean b) {
 		// TODO Auto-generated method stub
 		if(b) {
+			BombermanOO.punts+=3;
 			Mapa.matriz[x][y] = new Suelo(x,y);
 			Bomberman.pwr++;
 		}

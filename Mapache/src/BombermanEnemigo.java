@@ -72,6 +72,7 @@ public class BombermanEnemigo extends Enemigo implements Personaje{
 		// TODO Auto-generated method stub
 		img=9;
 		BombermanOO.enemyl.remove(this);
+		BombermanOO.punts+=10;
 		
 		
 	}
