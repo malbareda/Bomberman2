@@ -1,3 +1,4 @@
+package Bomberman;
 import java.util.ArrayList;
 
 public class Mapa {
@@ -5,7 +6,7 @@ public class Mapa {
 	static Mapa mapa=null;
 	final static int FILAS = 13;
 	final static int COLUMNAS = 15;
-	static Coso[][] matriz=new Coso[FILAS][COLUMNAS];
+	public static Coso[][] matriz=new Coso[FILAS][COLUMNAS];
 
 	
 	private Mapa(){

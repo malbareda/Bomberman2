@@ -1,3 +1,5 @@
+package Bomberman;
+
 
 public class Bomba extends Coso {
 

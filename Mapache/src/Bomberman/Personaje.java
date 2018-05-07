@@ -1,3 +1,4 @@
+package Bomberman;
 
 public interface Personaje {
 	

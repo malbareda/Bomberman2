@@ -1,7 +1,14 @@
+package Bomberman;
 
-public class BombermanEnemigo extends Enemigo implements Personaje{
+import java.io.Serializable;
+
+public class BombermanEnemigo extends Enemigo implements Personaje, Serializable{
 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3856531570460144513L;
 	int pwr=1;
 	public int img=3;
 	
@@ -67,6 +74,9 @@ public class BombermanEnemigo extends Enemigo implements Personaje{
 		
 	}
 
+	public String toString() {
+		return ("Negro en "+x+" "+y);
+	}
 	@Override
 	public void die() {
 		// TODO Auto-generated method stub

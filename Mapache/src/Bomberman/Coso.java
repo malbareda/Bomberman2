@@ -1,8 +1,11 @@
+package Bomberman;
 
-public abstract class Coso {
+import java.io.Serializable;
+
+public abstract class Coso implements Serializable {
 	
 	int x, y;
-	int img;
+	public int img;
 	Enemigo en;
 	boolean bm;
 	

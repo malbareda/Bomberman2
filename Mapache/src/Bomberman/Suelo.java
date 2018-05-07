@@ -1,3 +1,4 @@
+package Bomberman;
 
 public class Suelo extends Coso {
 

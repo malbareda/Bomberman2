@@ -1,3 +1,4 @@
+package Bomberman;
 import java.util.Scanner;
 
 public class CosasGraficasChulas {

@@ -1,7 +1,9 @@
+package Bomberman;
 
 public abstract class Enemigo {
 
-	int x,y;
+	public int x;
+	public int y;
 	public int img=3;
 	
 	public abstract void move();

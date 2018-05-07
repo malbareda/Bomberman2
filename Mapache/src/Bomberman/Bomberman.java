@@ -1,9 +1,17 @@
+package Bomberman;
 
-public class Bomberman implements Personaje{
+import java.io.Serializable;
 
+public class Bomberman implements Personaje, Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 191534819806267507L;
 	static int pwr=1;
-	int x,y;
-	static int img=2;
+	public int x;
+	public int y;
+	public static int img=2;
 	
 	public Bomberman(int i, int j) {
 		// TODO Auto-generated constructor stub

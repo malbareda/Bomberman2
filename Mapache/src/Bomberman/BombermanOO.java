@@ -1,10 +1,15 @@
+package Bomberman;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -42,22 +47,21 @@ public class BombermanOO {
 		// TODO Auto-generated method stub
 		try {
 			BufferedReader in = new BufferedReader(new FileReader(new File("ranking")));
-			while(in.ready()) {
+			while (in.ready()) {
 				String entrada = in.readLine();
 				String aen[] = entrada.split(" ");
 				int entradapunts = Integer.parseInt(aen[1]);
-				EntradaRanking entrank = new EntradaRanking(aen[0],entradapunts);
+				EntradaRanking entrank = new EntradaRanking(aen[0], entradapunts);
 				ranking.add(entrank);
 			}
 			Collections.sort(ranking);
 			in.close();
-			
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	private static void bucle() {
@@ -140,10 +144,15 @@ public class BombermanOO {
 		nom = sc.nextLine();
 		punts = 0;
 		sc.close();
-		map = Mapa.get();
-		bm = new Bomberman(1, 1);
-		enemyl.add(new BombermanEnemigo(1, 13));
-		enemyl.add(new BombermanEnemigo(10, 13));
+		
+		if (true) {
+			cargarMapa("example1.map");
+		} else {
+			map = Mapa.get();
+			bm = new Bomberman(1, 1);
+			enemyl.add(new BombermanEnemigo(1, 13));
+			enemyl.add(new BombermanEnemigo(10, 13));
+		}
 		timer.schedule(new TimerTask() {
 
 			@Override
@@ -154,6 +163,37 @@ public class BombermanOO {
 		}, 0, 600);
 	}
 
+	private static void cargarMapa(String path) {
+		// TODO Auto-generated method stub
+
+		ObjectInputStream ois;
+		try {
+			ois = new ObjectInputStream(new FileInputStream(path));
+
+			Object cas;
+			while (true) {
+				cas = ois.readObject();
+				if (cas instanceof ArrayList) {
+					System.out.println(cas);
+					enemyl = (ArrayList<Enemigo>) cas;
+					
+				} else if (cas instanceof Bomberman) {
+					bm = (Bomberman) cas;
+				} else if (cas instanceof Coso[][]) {
+					Mapa.get();
+					Mapa.matriz=(Coso[][]) cas;
+				}
+			}
+
+		} catch (EOFException e) {
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
 	private static void initgfx() {
 		// background
 		t.setActimgbackground(true);
@@ -161,7 +201,7 @@ public class BombermanOO {
 		t.setPAD(0);
 		// imagenes
 		t.setActimatges(true);
-		String[] imatges = { "", "", "bomberman.png", "bombermannegro.png", "bomba.png", "bloque.png", "bb.png",
+		String[] imatges = { "", "", "bomberman.png", "bombermannegro.png", "bomba.png", "caja.png", "bb.png",
 				"llama.png", "gore.png", "humornegro.png", "pu.jpg", "bomba.png", "bomba.png", "bomba.png", "", "",
 				"bbnegro.png", "", "", "", "", "bomba.png", "bomba.png", "bomba.png" };
 		t.setImatges(imatges);

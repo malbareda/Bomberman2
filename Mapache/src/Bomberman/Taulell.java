@@ -1,3 +1,4 @@
+package Bomberman;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
@@ -455,8 +456,13 @@ class SquareRx2 {
 					img = ImageIO.read(new File(imatges[value]));
 				} catch (IOException e) {
 				}
-				g2.drawImage(img, (int) x, (int) y + 3, (int) (x + xInc), (int) (y + yInc), 0, 0, img.getWidth(),
-						img.getHeight(), null);
+				try {
+					g2.drawImage(img, (int) x, (int) y + 3, (int) (x + xInc), (int) (y + yInc), 0, 0, img.getWidth(),
+							img.getHeight(), null);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					System.out.println("error en la imatge "+value+" "+imatges[value]);
+				}
 				/// El y+3 es per posar uns pixels de marge perque no comenci sobre la mateixa
 				/// linea de borde.
 			}
