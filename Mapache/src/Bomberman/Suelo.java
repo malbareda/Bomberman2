@@ -5,14 +5,14 @@ public class Suelo extends Coso {
 	public Suelo(int x, int y, boolean bm) {
 		this.x=x;
 		this.y=y;
-		img = 0;
+		img = 11;
 		this.bm=bm;
 	}
 	
 	public Suelo(int x, int y) {
 		this.x=x;
 		this.y=y;
-		img = 0;
+		img = 11;
 	}
 
 	@Override

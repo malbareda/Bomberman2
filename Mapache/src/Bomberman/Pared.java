@@ -1,6 +1,8 @@
 package Bomberman;
 
-public class Pared extends Coso {
+import java.io.Serializable;
+
+public class Pared extends Coso implements Serializable{
 
 	public Pared(int x, int y) {
 		this.x=x;

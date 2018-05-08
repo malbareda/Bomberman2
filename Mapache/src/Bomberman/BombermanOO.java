@@ -140,10 +140,11 @@ public class BombermanOO {
 
 	private static void initpartida() {
 		System.out.println("Introdueix el teu nom");
-		Scanner sc = new Scanner(System.in);
-		nom = sc.nextLine();
+		//Scanner sc = new Scanner(System.in);
+		//nom = sc.nextLine();
+		//sc.close();
 		punts = 0;
-		sc.close();
+		
 		
 		if (true) {
 			cargarMapa("example1.map");
@@ -176,10 +177,12 @@ public class BombermanOO {
 				if (cas instanceof ArrayList) {
 					System.out.println(cas);
 					enemyl = (ArrayList<Enemigo>) cas;
-					
+					System.out.println(enemyl);
 				} else if (cas instanceof Bomberman) {
+					System.out.println(cas);
 					bm = (Bomberman) cas;
 				} else if (cas instanceof Coso[][]) {
+					System.out.println(cas);
 					Mapa.get();
 					Mapa.matriz=(Coso[][]) cas;
 				}
@@ -193,16 +196,20 @@ public class BombermanOO {
 		}
 
 	}
+	
+	
 
 	private static void initgfx() {
+		
+		
 		// background
 		t.setActimgbackground(true);
 		t.setImgbackground("mapab.jpg");
 		t.setPAD(0);
 		// imagenes
 		t.setActimatges(true);
-		String[] imatges = { "", "", "bomberman.png", "bombermannegro.png", "bomba.png", "caja.png", "bb.png",
-				"llama.png", "gore.png", "humornegro.png", "pu.jpg", "bomba.png", "bomba.png", "bomba.png", "", "",
+		String[] imatges = { "", "pared.png", "bomberman.png", "bombermannegro.png", "bomba.png", "caja.png", "bb.png",
+				"llama.png", "gore.png", "humornegro.png", "pu.jpg", "suelo.png", "bomba.png", "bomba.png", "", "",
 				"bbnegro.png", "", "", "", "", "bomba.png", "bomba.png", "bomba.png" };
 		t.setImatges(imatges);
 

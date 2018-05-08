@@ -65,16 +65,9 @@ public class BombermanMaker {
 			//oos.writeObject(mapa);
 			oos.writeObject(Mapa.matriz);
 			System.out.println(enemylist);
-			oos.flush();
-			oos.close();
-			oos = new ObjectOutputStream(new FileOutputStream(path,true));
 			oos.writeObject(enemylist);
-			oos.flush();
-			oos.close();
-			oos = new ObjectOutputStream(new FileOutputStream(path,true));
+			System.out.println(enemylist);
 			oos.writeObject(bm);
-			oos.flush();
-			oos.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -97,8 +90,8 @@ public class BombermanMaker {
 		t.setPAD(0);
 		// imagenes
 		t.setActimatges(true);
-		String[] imatges = { "suelo.png", "gore.png", "bomberman.png", "bombermannegro.png", "bomba.png", "caja.png", "bb.png",
-				"llama.png", "gore.png", "humornegro.png", "", "bomba.png", "bomba.png", "bomba.png", "", "",
+		String[] imatges = { "", "pared.png", "bomberman.png", "bombermannegro.png", "bomba.png", "caja.png", "bb.png",
+				"llama.png", "gore.png", "humornegro.png", "", "suelo.png", "bomba.png", "bomba.png", "", "",
 				"bbnegro.png","","","","","bomba.png","bomba.png","bomba.png" };
 		t.setImatges(imatges);
 		Mapa.get();

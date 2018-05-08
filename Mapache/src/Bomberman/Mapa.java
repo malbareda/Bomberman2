@@ -47,13 +47,19 @@ public class Mapa {
 		
 	}
 	
+	
+	
+	
 	public static int[][] toIntMatrix(){
+		int pared=0;
 		int[][] imat = new int[FILAS][COLUMNAS];
 		for(int i=1;i<FILAS-1;i++) {
 			for(int j=1;j<COLUMNAS-1;j++) {
 				imat[i][j] = matriz[i][j].img;
+				if(imat[i][j]==1) pared++;
 			}
 		}
+		System.out.println(pared);
 		return imat;
 		
 	}

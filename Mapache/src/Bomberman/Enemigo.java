@@ -1,7 +1,13 @@
 package Bomberman;
 
-public abstract class Enemigo {
+import java.io.Serializable;
 
+public abstract class Enemigo implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2195328996528578907L;
 	public int x;
 	public int y;
 	public int img=3;
