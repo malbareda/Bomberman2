@@ -12,6 +12,11 @@ public class Mapa {
 	private Mapa(){
 		matriz = new Coso[FILAS][COLUMNAS];
 		for(int i=0;i<FILAS;i++) {
+			for(int j=0;j<COLUMNAS;j++) {
+				matriz[i][j] = new Suelo(i, j);
+			}
+		}
+		for(int i=0;i<FILAS;i++) {
 			matriz[i][0] = new Pared(i, 0);
 			matriz[i][COLUMNAS-1] = new Pared(i, COLUMNAS-1);
 		}
@@ -19,7 +24,8 @@ public class Mapa {
 			matriz[0][i] = new Pared(0, i);
 			matriz[FILAS-1][i] = new Pared(FILAS-1, i);
 		}
-		for(int i=1;i<FILAS-1;i++) {
+		
+		/*for(int i=1;i<FILAS-1;i++) {
 			for(int j=1;j<COLUMNAS-1;j++) {
 				if(i%2==0&&j%2==0) {
 					matriz[i][j]= new Pared(i,j);
@@ -31,7 +37,7 @@ public class Mapa {
 					matriz[i][j]= new Suelo(i,j);
 				}
 			}
-		}
+		}*/
 		
 		
 		
@@ -53,13 +59,13 @@ public class Mapa {
 	public static int[][] toIntMatrix(){
 		int pared=0;
 		int[][] imat = new int[FILAS][COLUMNAS];
-		for(int i=1;i<FILAS-1;i++) {
-			for(int j=1;j<COLUMNAS-1;j++) {
+		for(int i=0;i<FILAS;i++) {
+			for(int j=0;j<COLUMNAS;j++) {
 				imat[i][j] = matriz[i][j].img;
 				if(imat[i][j]==1) pared++;
 			}
 		}
-		System.out.println(pared);
+		//System.out.println(pared);
 		return imat;
 		
 	}

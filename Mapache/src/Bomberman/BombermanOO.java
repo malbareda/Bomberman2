@@ -20,6 +20,7 @@ public class BombermanOO {
 
 	static Timer timer = new Timer();
 	static Taulell t = new Taulell();
+	static RubenMenu rm = new RubenMenu();
 	static Finestra f = new Finestra(t);
 	static ArrayList<Bomba> bombl = new ArrayList<>();
 	static ArrayList<Enemigo> enemyl = new ArrayList<>();
@@ -28,15 +29,17 @@ public class BombermanOO {
 	static int punts = 0;
 	static Mapa map;
 	static ArrayList<EntradaRanking> ranking = new ArrayList<>();
+	static boolean empezar = false;
 
 	public static void main(String[] args) {
 
-		initgfx();
-		jugar();
+		RubenMenu.main(null);
+		
 
 	}
 
-	private static void jugar() {
+	static void jugar() {
+		initgfx();
 		initpartida();
 		leeRanking();
 		view();

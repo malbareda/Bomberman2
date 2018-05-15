@@ -31,6 +31,7 @@ public class Finestra extends JFrame {
 	private Taulell taulell;
 	private Taulell taulell2;
 	private boolean segontaulell=false;
+	private boolean menu=false;
 	private boolean actetiquetes = false;
 	private String[] etiquetes = { "" };
 	/// pots posar tantes etiquetes com vulguis eh, no estàs limitat a 3.
@@ -38,6 +39,7 @@ public class Finestra extends JFrame {
 	private JPanel tpanel = new JPanel(new GridLayout(0, 2, 5, 5));
 	private char ultimChar;  //ultim caracter apretat. Es mantindrà fins que se n'apreti un altre
 	private char actualChar; //caracter actual apretat. Consultarlo fara que s'esborri
+	private RubenMenu rubenmenu;
 
 	public Finestra(Taulell t) {
 		taulell = t;
@@ -49,6 +51,21 @@ public class Finestra extends JFrame {
 		taulell2 = t2;
 		segontaulell = true;
 		inici();
+	}
+
+	public Finestra(RubenMenu rm, Taulell t) {
+		// TODO Auto-generated constructor stub
+		taulell = t;
+		menu = true;
+		rubenmenu = rm;
+		inicimenu();
+		
+	}
+
+	private void inicimenu() {
+		// TODO Auto-generated method stub
+		
+		
 	}
 
 	private void inici() {

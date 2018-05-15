@@ -37,15 +37,26 @@ public class BombermanMaker {
 				System.out.print(Mapa.toIntMatrix()[i][j]);
 			}System.out.println();
 		}
+		
 		t.dibuixa(Mapa.toIntMatrix());
 		
+		
+		while(true) {
+			int mf = t.getMousefil();
+			int mc = t.getMousecol();
+			
+			Mapa.matriz[mf][mc]=new Caja(mf,mc);
+			t.dibuixa(Mapa.toIntMatrix());
+			
+			
+		}
 		
 		ArrayList<Enemigo> enemylist = new ArrayList<>();
 		enemylist.add(new BombermanEnemigo(1, 5));
 		enemylist.add(new BombermanEnemigo(11, 11));
 		enemylist.add(new BombermanEnemigo(11, 3));
 		
-		Bomberman bm = new Bomberman(7,7);
+		Bomberman bm = new Bomberman(1,1);
 		
 		
 		Mapa.overdraw(bm, enemylist);
@@ -64,9 +75,7 @@ public class BombermanMaker {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
 			//oos.writeObject(mapa);
 			oos.writeObject(Mapa.matriz);
-			System.out.println(enemylist);
 			oos.writeObject(enemylist);
-			System.out.println(enemylist);
 			oos.writeObject(bm);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
