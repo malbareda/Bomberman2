@@ -6,10 +6,12 @@ import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -149,10 +151,10 @@ public class BombermanOO {
 		punts = 0;
 		
 		
-		if (true) {
+		if (false) {
 			cargarMapa("example1.map");
 		} else {
-			map = Mapa.get();
+			map = Mapa.get(true);
 			bm = new Bomberman(1, 1);
 			enemyl.add(new BombermanEnemigo(1, 13));
 			enemyl.add(new BombermanEnemigo(10, 13));
@@ -166,6 +168,61 @@ public class BombermanOO {
 
 		}, 0, 600);
 	}
+	
+	static void loadState() {
+		// TODO Auto-generated method stub
+		FileInputStream fis;
+		try {
+			fis = new FileInputStream("save.sav");
+			
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			while(true) {
+				Object o = ois.readObject();
+				if (o instanceof Coso[][]) Mapa.matriz = (Coso[][]) o;
+				else if(o instanceof Bomberman) bm = (Bomberman) o;
+				else if(o instanceof ArrayList<?>) {
+					ArrayList<?> ao = (ArrayList<?>) o;
+					Object so = ao.get(0);
+					if(so instanceof Bomba) bombl = (ArrayList<Bomba>) o;
+					else if (so instanceof Enemigo) enemyl = (ArrayList<Enemigo>) o;
+				}
+			}
+			
+			/*Metodo cutre
+			 * Mapa.matriz = (Coso[][]) o;
+			 * Object o2 = ois.readObject();
+			bm = (Bomberman) o2;
+			Object o3 = ois.readObject();
+			bombl = (ArrayList<Bomba>) o3;
+			Object o4 = ois.readObject();
+			enemyl = (ArrayList<Enemigo>) o4;
+			 */
+			
+			
+		} catch (IOException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Cargado");
+		}
+	}
+
+	static void saveState() {
+		// TODO Auto-generated method stub
+		FileOutputStream fos;
+		try {
+			fos = new FileOutputStream("save.sav");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(Mapa.matriz);
+			oos.writeObject(bm);
+			oos.writeObject(bombl);
+			oos.writeObject(enemyl);
+			System.out.println("Guardado");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 
 	private static void cargarMapa(String path) {
 		// TODO Auto-generated method stub
@@ -186,7 +243,7 @@ public class BombermanOO {
 					bm = (Bomberman) cas;
 				} else if (cas instanceof Coso[][]) {
 					System.out.println(cas);
-					Mapa.get();
+					Mapa.get(false);
 					Mapa.matriz=(Coso[][]) cas;
 				}
 			}
@@ -206,7 +263,7 @@ public class BombermanOO {
 		
 		
 		// background
-		t.setActimgbackground(true);
+		t.setActimgbackground(false);
 		t.setImgbackground("mapab.jpg");
 		t.setPAD(0);
 		// imagenes

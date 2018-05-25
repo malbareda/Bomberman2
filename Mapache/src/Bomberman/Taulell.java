@@ -457,7 +457,7 @@ class SquareRx2 {
 				} catch (IOException e) {
 				}
 				try {
-					g2.drawImage(img, (int) x, (int) y + 3, (int) (x + xInc), (int) (y + yInc), 0, 0, img.getWidth(),
+					g2.drawImage(img, (int) x, (int) y, (int) (x + xInc), (int) (y + yInc), 0, 0, img.getWidth(),
 							img.getHeight(), null);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

@@ -62,6 +62,12 @@ public class Bomberman implements Personaje, Serializable{
 		case 'z':
 			action();
 			break;
+		case 'g':
+			BombermanOO.saveState();
+			break;
+		case 'l':
+			BombermanOO.loadState();
+			break;	
 			
 		}
 	}

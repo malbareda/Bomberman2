@@ -103,7 +103,7 @@ public class BombermanMaker {
 				"llama.png", "gore.png", "humornegro.png", "", "suelo.png", "bomba.png", "bomba.png", "", "",
 				"bbnegro.png","","","","","bomba.png","bomba.png","bomba.png" };
 		t.setImatges(imatges);
-		Mapa.get();
+		Mapa.get(false);
 		
 	}
 

@@ -24,7 +24,7 @@ public class Suelo extends Coso {
 		if(en!=null&&color==true) {
 			en.die();
 		}
-		Mapa m = Mapa.get();
+		Mapa m = Mapa.get(true);
 		m.matriz[x][y] = new Deflagracion(x,y);
 		return true;
 	}
